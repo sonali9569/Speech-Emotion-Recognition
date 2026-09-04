@@ -1,0 +1,53 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.pytest_cache/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.venv_keras/
+
+# Data (raw + derived features are large/regenerable; never commit audio or .npy arrays)
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/ravdess/
+data/raw/ravdess/*
+!data/raw/ravdess/.gitkeep
+!data/raw/tess/
+data/raw/tess/*
+!data/raw/tess/.gitkeep
+data/interim/
+# Processed dir: track small metadata/split CSVs for reproducibility, ignore large feature arrays.
+data/processed/*
+!data/processed/*.csv
+data/processed/features/
+
+# Model checkpoints (large binaries; keep repo lean, regenerate via training scripts) --
+# EXCEPT the one checkpoint app.py actually serves, which must be in the repo for Streamlit
+# Community Cloud to deploy it (there's no training step at deploy time, just this file).
+models/**/*.keras
+!models/cnn_lstm_hybrid.keras
+models/**/*.h5
+models/**/*.pkl
+checkpoints/
+
+# Logs / experiment tracking
+logs/
+runs/
+*.log
+
+# Editor
+.vscode/
+.idea/
+
+# Private working notes and drafts -- personal reference material, not for the public repo.
+PROGRESS.md
+docs/improvement_roadmap.md
+docs/cv_bullets_and_interview_prep.md
